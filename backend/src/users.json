@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "fullName": "Nguyen Van A",
+      "gmail": "kunyanan11@gmail.com",
+      "password": "$2b$10$Y3CMsYsQxgvxStO6/vH7iOIvom6C8w40CX1nDUD81VdRvunjCdAx.", 
+      "roleId": 1,
+      "enableMFA": false
+    },
+    {
+      "id": 2,
+      "fullName": "Ly Tuan An",
+      "gmail": "lytuanan1911@gmail.com",
+      "password": "$2b$10$Y3CMsYsQxgvxStO6/vH7iOIvom6C8w40CX1nDUD81VdRvunjCdAx.", 
+      "roleId": 2,
+      "enableMFA": true
+    }
+  ]
+  

@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "price": 10.99,
+        "description": "This is a description for Product 1. It's an excellent product for daily use."
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "price": 15.99,
+        "description": "This is a description for Product 2. It provides great value for money."
+    },
+    {
+        "id": 3,
+        "name": "Product 3",
+        "price": 12.99,
+        "description": "Product 3 is known for its durability and design."
+    },
+    {
+        "id": 4,
+        "name": "Product 4",
+        "price": 8.99,
+        "description": "Affordable and reliable, Product 4 is a must-have for your collection."
+    },
+    {
+        "id": 5,
+        "name": "Product 5",
+        "price": 18.99,
+        "description": "A premium quality product with top-notch features."
+    },
+    {
+        "id": 6,
+        "name": "Product 6",
+        "price": 9.99,
+        "description": "An economical choice with excellent performance."
+    }
+]
