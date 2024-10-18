@@ -5,7 +5,29 @@ app.controller('LoginController', ['$scope', 'AuthService', '$location', functio
     $scope.password = '';
     $scope.errorMessage = '';
 
+    function validateInput() {
+        if (!$scope.gmail || !validateGmail($scope.gmail)) {
+            $scope.errorMessage = 'Please enter a valid Gmail address (must be @gmail.com).';
+            return false;
+        }
+        if (!$scope.password) {
+            $scope.errorMessage = 'Password is required.';
+            return false;
+        }
+        return true;
+    }
+
+    function validateGmail(email) {
+        var re = /^[^\s@]+@gmail\.com$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    // Hàm xử lý đăng nhập
     $scope.login = function () {
+        if (!validateInput()) {
+            return;
+        }
+
         AuthService.login($scope.gmail, $scope.password)
             .then(function (result) {
                 if (result.enableMFA) {
@@ -94,7 +116,7 @@ app.controller('HomeController', ['$scope', '$http', '$location', function ($sco
         // Gọi API để làm mới accessToken bằng refreshToken trong header
         $http.post('http://localhost:3000/api/auth/refresh-token', {}, {
             headers: {
-                'Authorization': 'Bearer ' + refreshToken  // Gửi refreshToken trong header
+                'Authorization': 'Bearer ' + refreshToken
             }
         })
             .then(function (response) {

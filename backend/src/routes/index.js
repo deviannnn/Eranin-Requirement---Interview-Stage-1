@@ -12,7 +12,6 @@ router.post('/auth/refresh-token', AuthController.refresh);
 
 router.use(authenticate);
 
-// router.post('/users/logout');
 router.get('/products', ProductController.getAllProducts);
 
 module.exports = router;

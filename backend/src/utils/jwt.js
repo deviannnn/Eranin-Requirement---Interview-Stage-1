@@ -4,12 +4,12 @@ const jwt = require('jsonwebtoken');
 const TOKEN = {
     mfa: {
         secret: process.env.JWT_SECRET_MFA,
-        expiresIn: '1m',
+        expiresIn: '30s',
         algorithm: 'HS256'
     },
     access: {
         secret: process.env.JWT_SECRET_ACCESSTOKEN,
-        expiresIn: '2m',
+        expiresIn: '1m',
         algorithm: 'HS256'
     },
     refresh: {

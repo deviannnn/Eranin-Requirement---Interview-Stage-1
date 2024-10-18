@@ -28,6 +28,14 @@ const login = async (req, res, next) => {
     try {
         const { gmail, password } = req.body;
 
+        const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        if (!gmail || !gmailRegex.test(gmail)) {
+            return next(createError(400, 'Invalid gmail format.'));
+        }
+        if (!password) {
+            return next(createError(400,'Password is required.'));
+        }
+
         const user = userData.find(user => user.gmail === gmail);
         if (!user || !bcrypt.compareSync(password, user.password))
             return next(createError(400, 'Invalid gmail or password'));
@@ -86,7 +94,6 @@ const refresh = (req, res, next) => {
     try {
         // Lấy refresh token từ request headers hoặc body
         const oldToken = jwtUtils.extractToken(req);
-        console.log(oldToken);
         if (!oldToken) return next(createError(401, 'No refresh token provided!'));
 
         // Kiểm tra refresh token có trong danh sách hợp lệ không
@@ -109,7 +116,7 @@ const refresh = (req, res, next) => {
         // Tính toán thời gian còn lại của refresh token
         const currentTime = Math.floor(Date.now() / 1000);
         const remainingTime = decoded.exp - currentTime + "s";
-        console.log(decoded, currentTime, remainingTime);
+        console.log(decoded, remainingTime);
 
         const { accessToken, refreshToken } = generateTokenPair(user, remainingTime);
 
